@@ -1,5 +1,4 @@
-FROM mysql:5.7
-MAINTAINER Hide <padocon@naver.com>
+FROM mariadb:10.11.3-jammy
 
 #ADD ./mysql-init-files /docker-entrypoint-initdb.d
 ENV MYSQL_DATABASE=fastapi
