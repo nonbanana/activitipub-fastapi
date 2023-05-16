@@ -10,11 +10,26 @@
 - Event dispatcher
 - Cache
 
-## Run
-
-```python
-python3 main.py --env local|dev|prod --debug
+# Environment setting
+## Package install
+install [pdm](https://github.com/pdm-project/pdm), and type below script in project folder.
 ```
+pdm install
+```
+## Run project
+```bash
+python3 main.py --env {local|dev|prod} --debug
+```
+## Docker
+```bash
+docker compose up
+```
+if running docker need sudo, use `sudo -E` for keep environment variable
+# description
+## hierarchy
+- api: rest api
+- app: schema, data structure
+- core: somthing function work with other system...?
 
 ## SQLAlchemy for asyncio context
 
