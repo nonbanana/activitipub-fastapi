@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "fastapi-boilerplate"
+name = "activitypub-fastapi"
 version = "0.1.0"
-description = "FastAPI Boilerplate"
-authors = ["Hide <padocon@naver.com>"]
+description = "activitypub FastAPI"
+authors = ["nonbanana <nonbinary.nana@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -43,9 +43,25 @@ name = "fastapi-boilerplate"
 version = "0.1.0"
 description = "FastAPI Boilerplate"
 authors = [
-    {name = "hjcho", email = "hjcho@mycreatz.com"},
-    {name = "Hide", email = "padocon@naver.com"},
+    {name = "nonbanana", email = "nonbinary.nana@gmail.com"},
 ]
-dependencies = ["alembic<2.0.0,>=1.8.1", "SQLAlchemy[asyncio]<2.0.0,>=1.4.40", "PyJWT<3.0.0,>=2.4.0", "uvicorn<1.0.0,>=0.18.3", "fastapi<1.0.0,>=0.81.0", "celery<6.0.0,>=5.2.7", "gunicorn<21.0.0,>=20.1.0", "fastapi-event<1.0.0,>=0.1.3", "pythondi<2.0.0,>=1.2.4", "ujson<6.0.0,>=5.4.0", "aiomysql<1.0.0,>=0.1.1", "click<9.0.0,>=8.1.3", "greenlet==1.1.3", "redis<5.0.0,>=4.3.4"]
+dependencies = [
+    "alembic<2.0.0,>=1.8.1",
+    "SQLAlchemy[asyncio]<2.0.0,>=1.4.40",
+    "PyJWT<3.0.0,>=2.4.0",
+    "uvicorn<1.0.0,>=0.18.3",
+    "fastapi<1.0.0,>=0.81.0",
+    "celery<6.0.0,>=5.2.7",
+    "gunicorn<21.0.0,>=20.1.0",
+    "fastapi-event<1.0.0,>=0.1.3",
+    "pythondi<2.0.0,>=1.2.4",
+    "ujson<6.0.0,>=5.4.0",
+    "aiomysql<1.0.0,>=0.1.1",
+    "click<9.0.0,>=8.1.3",
+    "greenlet==1.1.3",
+    "redis<5.0.0,>=4.3.4",
+    "cryptography>=41.0.2",
+    "requests>=2.31.0",
+]
 requires-python = ">=3.8,<4.0"
 license = {text = "MIT"}

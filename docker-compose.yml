@@ -1,57 +1,37 @@
 version: '3.7'
 
 services:
-  # proxy:
-  #   image: traefik:v2.10
-  #   command:
-  #     - --entrypoints.web.address=:80
-  #     - --entrypoints.websecure.address=:443
-  #     # - --certificatesresolvers.re.acme.email=*****@naver.com
-  #     # - --certificatesresolvers.re.acme.storage=./acme.json
-  #     # - --certificatesresolvers.re.acme.httpchallenge.entryPoint=websecure
-  #   ports:
-  #     - 80:80
-  #     - 443:443
-  #     - 8080:8080
+
   api:
     build:
       context: .
       dockerfile: docker/api/Dockerfile
     container_name: api
     hostname: api
-    ports:
-      - '8000:8000'
     networks:
       - backend
     environment:
       - ENV=dev
-      - BACKEND_PORT=8000
       - DB_HOST=tcp://db:3306
     tty: true
     depends_on:
       - db
-    volumes:
-      - $PWD:/home
   db:
     build:
       context: .
       dockerfile: docker/db/Dockerfile
     container_name: db
     hostname: db
-    ports:
-      - '3306:3306'
     networks:
       - backend
-  redis:
-    build:
-      context: .
-      dockerfile: docker/redis/Dockerfile
-    container_name: redis
-    hostname: redis
-    ports:
-      - '6379:6379'
-    networks:
-      - backend
+  # redis:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/redis/Dockerfile
+  #   container_name: redis
+  #   hostname: redis
+  #   networks:
+  #     - backend
 
 networks:
   backend:

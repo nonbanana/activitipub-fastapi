@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  api:
+    volumes:
+      - $PWD:/home
+  
+    ports:
+      - '8000:8000'
+    environment:
+      - BACKEND_PORT=8000

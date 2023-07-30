@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from api import router
+from activitypub import act_pub_router
 from api.home.home import home_router
 from core.config import config
 from core.exceptions import CustomException
@@ -22,6 +23,7 @@ from core.helpers.cache import Cache, RedisBackend, CustomKeyMaker
 def init_routers(app_: FastAPI) -> None:
     app_.include_router(home_router)
     app_.include_router(router)
+    app_.include_router(act_pub_router)
 
 
 def init_listeners(app_: FastAPI) -> None:
@@ -73,9 +75,9 @@ def init_cache() -> None:
 
 def create_app() -> FastAPI:
     app_ = FastAPI(
-        title="Hide",
-        description="Hide API",
-        version="1.0.0",
+        title="fastapi-activitypub",
+        description="activitypub fastapi server",
+        version="0.0.1",
         docs_url=None if config.ENV == "production" else "/docs",
         redoc_url=None if config.ENV == "production" else "/redoc",
         dependencies=[Depends(Logging)],

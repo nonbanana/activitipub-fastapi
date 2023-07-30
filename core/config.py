@@ -8,8 +8,9 @@ class Config(BaseSettings):
     DEBUG: bool = True
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
-    WRITER_DB_URL: str = f"mysql+aiomysql://fastapi:fastapi@localhost:3306/fastapi"
-    READER_DB_URL: str = f"mysql+aiomysql://fastapi:fastapi@localhost:3306/fastapi"
+    HOST_NAME: str = "folio.nonbanana.com"
+    WRITER_DB_URL: str = f"mysql+aiomysql://fastapi:pripara@localhost:3306/fastapi"
+    READER_DB_URL: str = f"mysql+aiomysql://fastapi:pripara@localhost:3306/fastapi"
     JWT_SECRET_KEY: str = "fastapi"
     JWT_ALGORITHM: str = "HS256"
     SENTRY_SDN: str = None
@@ -32,9 +33,11 @@ class LocalConfig(Config):
 
 
 class ProductionConfig(Config):
+    
+    ENV: str = "production"
     DEBUG: str = False
-    WRITER_DB_URL: str = f"mysql+aiomysql://fastapi:fastapi@localhost:3306/prod"
-    READER_DB_URL: str = f"mysql+aiomysql://fastapi:fastapi@localhost:3306/prod"
+    WRITER_DB_URL: str = f"mysql+aiomysql://root:fastapi@db:3306/fastapi"
+    READER_DB_URL: str = f"mysql+aiomysql://root:fastapi@db:3306/fastapi"
 
 
 def get_config():

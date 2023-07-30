@@ -22,7 +22,7 @@ python3 main.py --env {local|dev|prod} --debug
 ```
 ## Docker
 ```bash
-docker compose up
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up
 ```
 if running docker need sudo, use `sudo -E` for keep environment variable
 # description
